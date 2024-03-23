@@ -60,7 +60,9 @@ app.whenReady().then(() => {
     console.log('called ', operands.previousNumber, operands.currentNumber)
     // calculate
     let result = parseFloat(operands.previousNumber) / parseFloat(operands.currentNumber)
+    result = result.toFixed(3)
     console.log(result)
+
     // file save
     const content = `\n ${operands.previousNumber} / ${operands.currentNumber} = ${result} \n`
     filechangehandler(content)
