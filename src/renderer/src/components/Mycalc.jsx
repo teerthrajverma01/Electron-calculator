@@ -49,27 +49,42 @@ const Mycalc = () => {
     let promise
     switch (operations) {
       case '÷':
+        // call to main process
+
         promise = window.calculateapi.div({ previousNumber, currentNumber })
         promise.then((data) => {
           result = Number(data)
+          if (!Number.isInteger(result)) {
+            result.toFixed(3)
+          }
           setCurrent(result)
           setPrevoius('')
           setOperations('')
         })
         break
       case 'x':
+        // call to main process
+
         promise = window.calculateapi.mul({ previousNumber, currentNumber })
         promise.then((data) => {
           result = Number(data)
+          if (!Number.isInteger(result)) {
+            result.toFixed(3)
+          }
           setCurrent(result)
           setPrevoius('')
           setOperations('')
         })
         break
       case '+':
+        // call to main process
+
         promise = window.calculateapi.add({ previousNumber, currentNumber })
         promise.then((data) => {
           result = Number(data)
+          if (!Number.isInteger(result)) {
+            result.toFixed(3)
+          }
           setCurrent(result)
           setPrevoius('')
           setOperations('')
@@ -77,9 +92,13 @@ const Mycalc = () => {
 
         break
       case '-':
+        // call to main process
         promise = window.calculateapi.sub({ previousNumber, currentNumber })
         promise.then((data) => {
           result = Number(data)
+          if (!Number.isInteger(result)) {
+            result.toFixed(3)
+          }
           setCurrent(result)
           setPrevoius('')
           setOperations('')
@@ -88,6 +107,9 @@ const Mycalc = () => {
       default:
         return
     }
+    // if (!Number.isInteger(result)) {
+    //   result.toFixed(3)
+    // }
     console.log(result, typeof result)
     return result
   }
